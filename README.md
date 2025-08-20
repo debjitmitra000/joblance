@@ -218,7 +218,7 @@ npm run db:generate  # Generate migrations
   <br>
   <p>🚀 Transform your job search with AI-powered Job Analysis</p>
   
-  <a href="https://github.com/your-username/joblance/stargazers">
+  <a href="https://github.com/debjitmitra000/joblance/stargazers">
     <img src="https://img.shields.io/badge/⭐_Star_This_Repo-171515?style=for-the-badge&logo=github&logoColor=white" alt="Star on GitHub"/>
   </a>
   
