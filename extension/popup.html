@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <span class="logo-icon">🚀</span>
+        <span>JOBLANCE</span>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Initializing...</p>
+    </div>
+
+    <!-- Login Required -->
+    <div id="loginRequired" class="auth-section hidden">
+      <div class="icon-large">
+        <span class="large-icon">🎟️</span>
+      </div>
+      <h3>Authentication Required</h3>
+      <p>Please enter your authentication token from the JOBLANCE dashboard</p>
+      
+      <div class="token-input-section">
+        <input type="password" id="tokenInput" placeholder="Paste your auth token here..." class="token-input">
+        <button id="authenticateBtn" class="btn btn-primary">
+          <span class="btn-icon">🔓</span>
+          Authenticate
+        </button>
+      </div>
+      
+      <div class="auth-help">
+        <p>Get your token from:</p>
+        <button id="openDashboardForTokenBtn" class="btn btn-secondary btn-small">
+          <span class="btn-icon">🌐</span>
+          Open Dashboard
+        </button>
+      </div>
+    </div>
+
+    <!-- Setup Required -->
+    <div id="setupRequired" class="setup-section hidden">
+      <div class="icon-large">
+        <span class="large-icon">⚙️</span>
+      </div>
+      <h3>Setup Required</h3>
+      <div class="setup-checklist">
+        <div class="checklist-item" id="resumeCheck">
+          <span class="check-icon">❌</span>
+          <span>Upload resume</span>
+        </div>
+        <div class="checklist-item" id="apiKeyCheck">
+          <span class="check-icon">❌</span>
+          <span>Configure Gemini API key</span>
+        </div>
+      </div>
+      <button id="openDashboardBtn" class="btn btn-primary">
+        <span class="btn-icon">🚀</span>
+        Complete Setup
+      </button>
+    </div>
+
+    <!-- Job Detection Error -->
+    <div id="noJobDetected" class="error-section hidden">
+      <div class="icon-large">
+        <span class="large-icon">⚠️</span>
+      </div>
+      <h3>No Job Posting Detected</h3>
+      <p>Navigate to a job posting page and try again</p>
+      <button id="tryAgainBtn" class="btn btn-secondary">
+        <span class="btn-icon">🔄</span>
+        Try Again
+      </button>
+    </div>
+
+    <!-- Main Interface -->
+    <div id="mainInterface" class="main-interface hidden">
+      <!-- Job Detection -->
+      <div class="job-detection" id="jobDetection">
+        <div class="success-indicator">
+          <span class="success-icon">✅</span>
+          <span>Job Posting Detected</span>
+        </div>
+        <div class="job-info">
+          <p id="jobTitle">Loading job details...</p>
+          <p id="jobCompany" class="job-company"></p>
+        </div>
+      </div>
+
+      <!-- User Status -->
+      <div class="user-status">
+        <div class="user-info">
+          <span class="label">Signed in as:</span>
+          <span id="userName" class="user-name">Loading...</span>
+        </div>
+        <div class="resume-status">
+          <span class="status-icon">📄</span>
+          <span>Resume uploaded ✓</span>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <button id="analyzeBtn" class="btn btn-primary btn-analyze">
+        <span class="btn-icon">✨</span>
+        Analyze with AI
+      </button>
+
+      <!-- Loading State -->
+      <div id="analyzing" class="analyzing hidden">
+        <div class="analysis-spinner">
+          <div class="spinner-small"></div>
+          <span>Analyzing job requirements...</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Quick Results -->
+      <div id="quickResults" class="quick-results hidden">
+        <div class="results-header">
+          <span class="label">Last Analysis</span>
+          <span id="matchPercentage" class="match-percentage">0% match</span>
+        </div>
+        <div class="results-summary">
+          <span id="matchedCount">0 matched</span>
+          <span id="partialCount">0 partial</span>
+          <span id="missingCount">0 missing</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button id="viewReportBtn" class="btn btn-secondary btn-small">
+          <span class="btn-icon">📊</span>
+          View Full Report
+        </button>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="errorMessage" class="error-message hidden">
+      <span id="errorText"></span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(210 25% 7.8431%);
+  --card: hsl(180 6.6667% 97.0588%);
+  --card-foreground: hsl(210 25% 7.8431%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(210 25% 7.8431%);
+  --primary: hsl(217.2 91.2% 59.8%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(210 25% 7.8431%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(240 1.9608% 90%);
+  --muted-foreground: hsl(210 25% 7.8431%);
+  --accent: hsl(211.5789 51.3514% 92.7451%);
+  --accent-foreground: hsl(217.2 91.2% 59.8%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(201.4286 30.4348% 90.9804%);
+  --input: hsl(200 23.0769% 97.4510%);
+  --ring: hsl(217.2 91.2% 59.8%);
+  
+  /* JOBLANCE brand colors */
+  --brand-blue: 59 130 246;
+  --brand-purple: 147 51 234;
+  --brand-emerald: 16 185 129;
+  --brand-amber: 245 158 11;
+  --brand-red: 239 68 68;
+  
+  --font-inter: 'Inter', sans-serif;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: hsl(0 0% 0%);
+  --foreground: hsl(200 6.6667% 91.1765%);
+  --card: hsl(228 9.8039% 10%);
+  --card-foreground: hsl(0 0% 85.0980%);
+  --popover: hsl(0 0% 0%);
+  --popover-foreground: hsl(200 6.6667% 91.1765%);
+  --primary: hsl(217.2 91.2% 59.8%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(195.0000 15.3846% 94.9020%);
+  --secondary-foreground: hsl(210 25% 7.8431%);
+  --muted: hsl(0 0% 9.4118%);
+  --muted-foreground: hsl(210 3.3898% 46.2745%);
+  --accent: hsl(205.7143 70% 7.8431%);
+  --accent-foreground: hsl(217.2 91.2% 59.8%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(210 5.2632% 14.9020%);
+  --input: hsl(207.6923 27.6596% 18.4314%);
+  --ring: hsl(217.2 91.2% 59.8%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply antialiased bg-background text-foreground;
+    font-family: var(--font-inter);
+    margin: 0;
+    padding: 0;
+  }
+  
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+  
+  /* JOBLANCE Brand Color Utilities */
+  .bg-brand-blue {
+    background-color: rgb(var(--brand-blue));
+  }
+  
+  .bg-brand-blue\/10 {
+    background-color: rgb(var(--brand-blue) / 0.1);
+  }
+  
+  .bg-brand-blue\/20 {
+    background-color: rgb(var(--brand-blue) / 0.2);
+  }
+  
+  .bg-brand-blue\/30 {
+    background-color: rgb(var(--brand-blue) / 0.3);
+  }
+  
+  .bg-brand-purple {
+    background-color: rgb(var(--brand-purple));
+  }
+  
+  .bg-brand-purple\/10 {
+    background-color: rgb(var(--brand-purple) / 0.1);
+  }
+  
+  .bg-brand-purple\/20 {
+    background-color: rgb(var(--brand-purple) / 0.2);
+  }
+  
+  .bg-brand-purple\/30 {
+    background-color: rgb(var(--brand-purple) / 0.3);
+  }
+  
+  .bg-brand-emerald {
+    background-color: rgb(var(--brand-emerald));
+  }
+  
+  .bg-brand-emerald\/10 {
+    background-color: rgb(var(--brand-emerald) / 0.1);
+  }
+  
+  .bg-brand-emerald\/30 {
+    background-color: rgb(var(--brand-emerald) / 0.3);
+  }
+  
+  .bg-brand-amber {
+    background-color: rgb(var(--brand-amber));
+  }
+  
+  .bg-brand-amber\/10 {
+    background-color: rgb(var(--brand-amber) / 0.1);
+  }
+  
+  .bg-brand-red {
+    background-color: rgb(var(--brand-red));
+  }
+  
+  .text-brand-blue {
+    color: rgb(var(--brand-blue));
+  }
+  
+  .text-brand-purple {
+    color: rgb(var(--brand-purple));
+  }
+  
+  .text-brand-emerald {
+    color: rgb(var(--brand-emerald));
+  }
+  
+  .text-brand-amber {
+    color: rgb(var(--brand-amber));
+  }
+  
+  .text-brand-red {
+    color: rgb(var(--brand-red));
+  }
+  
+  .border-brand-blue {
+    border-color: rgb(var(--brand-blue));
+  }
+  
+  .border-brand-blue\/20 {
+    border-color: rgb(var(--brand-blue) / 0.2);
+  }
+  
+  .border-brand-purple\/30 {
+    border-color: rgb(var(--brand-purple) / 0.3);
+  }
+  
+  .border-brand-emerald\/30 {
+    border-color: rgb(var(--brand-emerald) / 0.3);
+  }
+  
+  .hover\:bg-brand-blue:hover {
+    background-color: rgb(var(--brand-blue));
+  }
+  
+  .hover\:bg-brand-purple:hover {
+    background-color: rgb(var(--brand-purple));
+  }
+  
+  /* Gradient utilities */
+  .from-brand-purple {
+    --tw-gradient-from: rgb(var(--brand-purple)) var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(var(--brand-purple) / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .to-brand-blue {
+    --tw-gradient-to: rgb(var(--brand-blue)) var(--tw-gradient-to-position);
+  }
+  
+  .to-brand-emerald {
+    --tw-gradient-to: rgb(var(--brand-emerald)) var(--tw-gradient-to-position);
+  }
+  
+  .via-brand-blue {
+    --tw-gradient-to: rgb(var(--brand-blue) / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), rgb(var(--brand-blue)) var(--tw-gradient-via-position), var(--tw-gradient-to);
+  }
+  
+  .from-brand-blue {
+    --tw-gradient-from: rgb(var(--brand-blue)) var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(var(--brand-blue) / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .from-brand-emerald {
+    --tw-gradient-from: rgb(var(--brand-emerald)) var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(var(--brand-emerald) / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .from-brand-amber {
+    --tw-gradient-from: rgb(var(--brand-amber)) var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(var(--brand-amber) / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .to-brand-purple\/60 {
+    --tw-gradient-to: rgb(var(--brand-purple) / 0.6) var(--tw-gradient-to-position);
+  }
+  
+  .to-brand-blue\/60 {
+    --tw-gradient-to: rgb(var(--brand-blue) / 0.6) var(--tw-gradient-to-position);
+  }
+  
+  .to-brand-emerald\/60 {
+    --tw-gradient-to: rgb(var(--brand-emerald) / 0.6) var(--tw-gradient-to-position);
+  }
+  
+  .to-brand-amber\/60 {
+    --tw-gradient-to: rgb(var(--brand-amber) / 0.6) var(--tw-gradient-to-position);
+  }
+}

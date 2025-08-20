@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOBLANCE - AI-Powered Job Analysis</title>
+    <meta name="description" content="Instantly analyze job requirements against your resume using advanced AI. Works on any job site with our Chrome extension.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Enhanced loading styles - only loader that shows -->
+    <style>
+      /* Critical loading styles */
+      #initial-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow: hidden;
+      }
+      
+      /* Background particles */
+      .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: linear-gradient(45deg, #9333ea, #3b82f6);
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+      .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; }
+      .particle:nth-child(3) { left: 60%; top: 10%; animation-delay: 4s; }
+      .particle:nth-child(4) { left: 80%; top: 70%; animation-delay: 1s; }
+      .particle:nth-child(5) { left: 30%; top: 40%; animation-delay: 3s; }
+      .particle:nth-child(6) { left: 70%; top: 60%; animation-delay: 5s; }
+      
+      .loader-content {
+        text-align: center;
+        position: relative;
+        z-index: 10;
+      }
+      
+      /* Centered rocket with enhanced design */
+      .loader-rocket {
+        font-size: 6rem;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+        animation: rocket-float 3s ease-in-out infinite;
+        filter: drop-shadow(0 10px 20px rgba(147, 51, 234, 0.3));
+      }
+      
+      .loader-rocket::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 140px;
+        height: 140px;
+        border: 3px solid transparent;
+        border-top: 3px solid rgba(147, 51, 234, 0.4);
+        border-right: 3px solid rgba(59, 130, 246, 0.4);
+        border-radius: 50%;
+        animation: rotate 4s linear infinite;
+      }
+      
+      .loader-rocket::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        border: 2px solid transparent;
+        border-bottom: 2px solid rgba(16, 185, 129, 0.5);
+        border-left: 2px solid rgba(245, 158, 11, 0.5);
+        border-radius: 50%;
+        animation: rotate 2s linear infinite reverse;
+      }
+      
+      .loader-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #9333ea, #3b82f6, #10b981);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+        animation: gradient-shift 4s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(147, 51, 234, 0.3);
+      }
+      
+      .loader-subtitle {
+        color: #64748b;
+        font-size: 1.25rem;
+        margin-bottom: 4rem;
+        font-weight: 600;
+        opacity: 0;
+        animation: fadeInUp 1.5s ease-out 0.8s forwards;
+      }
+      
+      /* Sleek progress bar */
+      .loader-progress {
+        width: 320px;
+        height: 8px;
+        background: rgba(148, 163, 184, 0.15);
+        border-radius: 9999px;
+        overflow: hidden;
+        margin: 0 auto 3rem;
+        position: relative;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .loader-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #9333ea, #3b82f6, #10b981, #f59e0b);
+        background-size: 400% 100%;
+        border-radius: 9999px;
+        width: 0%;
+        animation: loading-advanced 5s ease-in-out infinite;
+        box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+      }
+      
+      .loader-progress::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+        animation: shimmer 3s ease-in-out infinite;
+      }
+      
+      /* Premium floating dots */
+      .loader-dots {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+      }
+      
+      .loader-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        animation: dot-bounce 2s ease-in-out infinite;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .loader-dot:nth-child(1) { 
+        background: linear-gradient(45deg, #9333ea, #a855f7);
+        animation-delay: 0s; 
+      }
+      .loader-dot:nth-child(2) { 
+        background: linear-gradient(45deg, #3b82f6, #60a5fa);
+        animation-delay: 0.3s; 
+      }
+      .loader-dot:nth-child(3) { 
+        background: linear-gradient(45deg, #10b981, #34d399);
+        animation-delay: 0.6s; 
+      }
+      
+      /* Animations */
+      @keyframes rocket-float {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-25px) rotate(3deg);
+        }
+      }
+      
+      @keyframes rotate {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); opacity: 0.3; }
+        50% { transform: translateY(-40px); opacity: 0.7; }
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes loading-advanced {
+        0% { width: 0%; background-position: 0% 50%; }
+        30% { width: 50%; background-position: 100% 50%; }
+        60% { width: 80%; background-position: 200% 50%; }
+        100% { width: 100%; background-position: 300% 50%; }
+      }
+      
+      @keyframes shimmer {
+        0% { left: -100%; }
+        100% { left: 100%; }
+      }
+      
+      @keyframes dot-bounce {
+        0%, 100% {
+          transform: translateY(0px) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.2);
+        }
+      }
+      
+      /* Hide initial loader when React takes over */
+      .app-loaded #initial-loader {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.8s ease-out;
+      }
+      
+      .app-loaded #initial-loader.hidden {
+        display: none;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 640px) {
+        .loader-title {
+          font-size: 2.5rem;
+        }
+        
+        .loader-rocket {
+          font-size: 4rem;
+        }
+        
+        .loader-progress {
+          width: 240px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Minimalist centered loader -->
+    <div id="initial-loader">
+      <!-- Background particles -->
+      <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+      
+      <div class="loader-content">
+        <div class="loader-rocket">🚀</div>
+        <h1 class="loader-title">JOBLANCE</h1>
+        <p class="loader-subtitle">AI-Powered Job Analysis</p>
+        
+        <div class="loader-progress">
+          <div class="loader-progress-bar"></div>
+        </div>
+        
+        <div class="loader-dots">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- React app mounts here -->
+    <div id="root"></div>
+    
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Fallback script to ensure loader is hidden -->
+    <script>
+      // Fallback: hide loader after maximum time to prevent indefinite loading
+      setTimeout(function() {
+        const loader = document.getElementById('initial-loader');
+        if (loader && !document.body.classList.contains('app-loaded')) {
+          console.log('Fallback: Hiding loader after timeout');
+          document.body.classList.add('app-loaded');
+          setTimeout(function() {
+            loader.classList.add('hidden');
+          }, 800);
+        }
+      }, 8000); // Maximum 8 seconds
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+# Node & Dependencies
+node_modules/
+**/node_modules/
+
+# Build Output (auto-generated)
+dist/
+build/
+extension/assets/dist/
+
+# Public uploads (optional)
+server/public/
+
+# Environment & Secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs & Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+debug.log
+*.log
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# TypeScript & Vite Specific
+*.tsbuildinfo
+vite.config.ts.*
+vite.config.*.ts
+*.d.ts
+
+# Archive Files
+*.tar.gz
+*.tgz
+*.tar
+*.gz
+
+# Allow zip explicitly
+!*.zip
