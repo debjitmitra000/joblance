@@ -137,7 +137,7 @@ ALLOWED_FILE_TYPES=application/pdf,application/vnd.openxmlformats-officedocument
 ## 🔍 How It Works
 
 ### 1. **Resume Analysis & Profile Setup**
-   - Upload your resume (DOCX/PDF supported)
+   - Upload your resume (DOCX supported)
    - AI extracts and categorizes skills automatically
    - Comprehensive career profile generation
    - Skill inventory and experience mapping
