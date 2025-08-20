@@ -1,7 +1,11 @@
 # <div align="center">🚀 JOBLANCE 🚀</div>
 ### <div align="center">*AI-Powered Job Analysis Platform*</div>
 
-<!-- [Demo Video Coming Soon](https://github.com/your-username/joblance) -->
+[JOBLANCE.mp4](https://github.com/user-attachments/assets/655a9ab2-3461-44c7-a391-3a9e3178c1e2) 
+
+
+
+
 
 ## 💡 About The Project
 
