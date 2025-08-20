@@ -1,7 +1,7 @@
 # <div align="center">🚀 JOBLANCE 🚀</div>
 ### <div align="center">*AI-Powered Career Intelligence Platform*</div>
 
-[Demo Video Coming Soon](https://github.com/your-username/joblance)
+<!-- [Demo Video Coming Soon](https://github.com/your-username/joblance) -->
 
 ## 💡 About The Project
 
@@ -212,8 +212,7 @@ npm run db:generate  # Generate migrations
 - **Modern Architecture**: Full-stack TypeScript with type-safe development
 - **Scalable Infrastructure**: PostgreSQL with Drizzle ORM for efficient data management
 
-
-
+---
 
 <div align="center">
   <br>
