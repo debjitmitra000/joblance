@@ -1,11 +1,11 @@
 # <div align="center">🚀 JOBLANCE 🚀</div>
-### <div align="center">*AI-Powered Career Intelligence Platform*</div>
+### <div align="center">*AI-Powered Job Analysis Platform*</div>
 
-[Demo Video Coming Soon](https://github.com/your-username/joblance)
+<!-- [Demo Video Coming Soon](https://github.com/your-username/joblance) -->
 
 ## 💡 About The Project
 
-**JOBLANCE** is a revolutionary AI-powered career intelligence platform that transforms the job searching experience. With advanced resume analysis, intelligent skill gap detection, and seamless Chrome extension integration, JOBLANCE provides instant job posting analysis across all major job boards. The platform leverages Google Gemini AI to deliver personalized career recommendations, application priority scoring, and comprehensive career growth insights.
+**JOBLANCE** is a revolutionary AI-powered job analysis platform that transforms the job searching experience. With advanced resume analysis, intelligent skill gap detection, and seamless Chrome extension integration, JOBLANCE provides instant job posting analysis across all major job boards. The platform leverages Google Gemini AI to deliver personalized career recommendations, application priority scoring, and comprehensive career growth insights.
 
 > "Revolutionize your job search with AI-powered career intelligence and instant job analysis."
 
@@ -137,7 +137,7 @@ ALLOWED_FILE_TYPES=application/pdf,application/vnd.openxmlformats-officedocument
 ## 🔍 How It Works
 
 ### 1. **Resume Analysis & Profile Setup**
-   - Upload your resume (DOCX/PDF supported)
+   - Upload your resume (DOCX supported)
    - AI extracts and categorizes skills automatically
    - Comprehensive career profile generation
    - Skill inventory and experience mapping
@@ -212,14 +212,13 @@ npm run db:generate  # Generate migrations
 - **Modern Architecture**: Full-stack TypeScript with type-safe development
 - **Scalable Infrastructure**: PostgreSQL with Drizzle ORM for efficient data management
 
-
-
+---
 
 <div align="center">
   <br>
   <p>🚀 Transform your job search with AI-powered Job Analysis</p>
   
-  <a href="https://github.com/your-username/joblance/stargazers">
+  <a href="https://github.com/debjitmitra000/joblance/stargazers">
     <img src="https://img.shields.io/badge/⭐_Star_This_Repo-171515?style=for-the-badge&logo=github&logoColor=white" alt="Star on GitHub"/>
   </a>
   

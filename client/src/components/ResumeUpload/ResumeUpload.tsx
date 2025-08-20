@@ -21,7 +21,8 @@ export default function ResumeUpload() {
       queryClient.invalidateQueries({ queryKey: ["/api/resume"] });
       toast({
         title: "Success",
-        description: "Resume uploaded successfully! Skills extracted and ready for analysis.",
+        description:
+          "Resume uploaded successfully! Skills extracted and ready for analysis.",
       });
     },
     onError: (error: Error) => {
@@ -62,7 +63,7 @@ export default function ResumeUpload() {
     },
     onError: (error: Error) => {
       toast({
-        title: "Analysis Failed", 
+        title: "Analysis Failed",
         description: error.message,
         variant: "destructive",
       });
@@ -85,19 +86,21 @@ export default function ResumeUpload() {
     setDragActive(false);
 
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      handleFileUpload(e.dataTransfer.files);
+      handleFileUpload(e.dataTransfer.files[0]);
     }
   };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      handleFileUpload(e.target.files);
+      handleFileUpload(e.target.files[0]);
     }
   };
 
   const handleFileUpload = (file: File) => {
     // Validate file type - DOCX only
-    const allowedTypes = ['application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    const allowedTypes = [
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
     if (!allowedTypes.includes(file.type)) {
       toast({
         title: "Invalid File Type",
@@ -137,8 +140,8 @@ export default function ResumeUpload() {
       {!resume ? (
         <div
           className={`border-2 border-dashed rounded-2xl p-12 text-center transition-all cursor-pointer ${
-            dragActive 
-              ? "border-brand-purple bg-purple-50 dark:bg-purple-900/20" 
+            dragActive
+              ? "border-brand-purple bg-purple-50 dark:bg-purple-900/20"
               : "border-muted-foreground/40 hover:border-brand-purple hover:bg-muted/30"
           }`}
           onDragEnter={handleDrag}
@@ -150,10 +153,14 @@ export default function ResumeUpload() {
           <div className="space-y-4">
             <span className="text-6xl block opacity-60">📁</span>
             <div>
-              <p className="text-xl font-semibold text-foreground mb-2">Upload Your Resume</p>
-              <p className="text-muted-foreground mb-6">Drop your DOCX file here, or click to browse</p>
+              <p className="text-xl font-semibold text-foreground mb-2">
+                Upload Your Resume
+              </p>
+              <p className="text-muted-foreground mb-6">
+                Drop your DOCX file here, or click to browse
+              </p>
             </div>
-            <Button 
+            <Button
               className="bg-brand-purple text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors text-base"
               disabled={uploadMutation.isPending}
             >
@@ -174,9 +181,13 @@ export default function ResumeUpload() {
             <div className="flex items-center space-x-4">
               <div className="text-3xl">📄</div>
               <div>
-                <p className="font-semibold text-green-900 dark:text-green-100 text-lg">{resume.originalName}</p>
+                <p className="font-semibold text-green-900 dark:text-green-100 text-lg">
+                  {resume.originalName}
+                </p>
                 <div className="flex items-center space-x-4 text-sm text-green-700 dark:text-green-300">
-                  <span>Uploaded {new Date(resume.uploadedAt).toLocaleDateString()}</span>
+                  <span>
+                    Uploaded {new Date(resume.uploadedAt).toLocaleDateString()}
+                  </span>
                   <span>•</span>
                   <span>{formatFileSize(resume.fileSize)}</span>
                   {resume.hasSkills && (
@@ -234,7 +245,9 @@ export default function ResumeUpload() {
         <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg">
           <div className="flex items-center">
             <div className="animate-spin rounded-full h-5 w-5 border-2 border-brand-purple border-t-transparent mr-3"></div>
-            <span className="text-sm text-blue-800 dark:text-blue-200 font-medium">Uploading and analyzing resume...</span>
+            <span className="text-sm text-blue-800 dark:text-blue-200 font-medium">
+              Uploading and analyzing resume...
+            </span>
           </div>
         </div>
       )}

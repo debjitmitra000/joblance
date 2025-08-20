@@ -146,7 +146,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   );
 
-  // Resume routes
+  // Resume upload route update - Only the relevant section
   app.post(
     "/api/resume/upload",
     authenticateToken,
@@ -164,7 +164,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const file = req.file;
         let extractedText = "";
 
-        // Parse DOCX file
+        // Parse DOCX file only
         if (
           file.mimetype ===
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
