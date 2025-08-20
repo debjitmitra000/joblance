@@ -1,11 +1,11 @@
 # <div align="center">🚀 JOBLANCE 🚀</div>
-### <div align="center">*AI-Powered Career Intelligence Platform*</div>
+### <div align="center">*AI-Powered Job Analysis Platform*</div>
 
 <!-- [Demo Video Coming Soon](https://github.com/your-username/joblance) -->
 
 ## 💡 About The Project
 
-**JOBLANCE** is a revolutionary AI-powered career intelligence platform that transforms the job searching experience. With advanced resume analysis, intelligent skill gap detection, and seamless Chrome extension integration, JOBLANCE provides instant job posting analysis across all major job boards. The platform leverages Google Gemini AI to deliver personalized career recommendations, application priority scoring, and comprehensive career growth insights.
+**JOBLANCE** is a revolutionary AI-powered job analysis platform that transforms the job searching experience. With advanced resume analysis, intelligent skill gap detection, and seamless Chrome extension integration, JOBLANCE provides instant job posting analysis across all major job boards. The platform leverages Google Gemini AI to deliver personalized career recommendations, application priority scoring, and comprehensive career growth insights.
 
 > "Revolutionize your job search with AI-powered career intelligence and instant job analysis."
 
