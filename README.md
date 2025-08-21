@@ -1,10 +1,7 @@
 # <div align="center">🚀 JOBLANCE 🚀</div>
-### <div align="center">*AI-Powered Job Analysis Platform*</div>
+### <div align="center">*AI-Powered Job Analysis Platform*</div> 
 
-[JOBLANCE.mp4](https://github.com/user-attachments/assets/655a9ab2-3461-44c7-a391-3a9e3178c1e2) 
-
-
-
+[JOBLANCE.webm](https://github.com/user-attachments/assets/dd845985-f05b-49cd-8ab2-38dd716d7775)
 
 
 ## 💡 About The Project
